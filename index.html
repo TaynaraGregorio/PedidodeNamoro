@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.jpg" type="image/jpg">
+
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <iframe src="https://open.spotify.com/embed/track/7evftBiobEwWOwfxiTnnKc" width="300" height="80" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+
+        <img src="namoro.jpg" alt="Eu&Você">
+    </div>
+
+    <p> Aceita namorar comigo?&#x1F495; </p>
+
+    <div class="botoes">
+        <button id="b1"> &#128513; Sim </button>
+        <button id="b2"> &#128552; Não </button>
+    </div>
+
+    <script>
+        // Seleciona os elementos
+        const botaoSim = document.getElementById('b1');
+        const botaoNao = document.getElementById('b2');
+        const mensagem = document.getElementById('mensagem');
+      
+        // Cria o elemento para a mensagem
+        const mensagemPopup = document.createElement('div');
+        mensagemPopup.style.position = 'fixed'; // Para manter no meio da tela, mesmo com o scroll
+        mensagemPopup.style.top = '50%'; // Centraliza verticalmente
+        mensagemPopup.style.left = '50%'; // Centraliza horizontalmente
+        mensagemPopup.style.transform = 'translate(-50%, -50%)'; // Ajusta a posição para que o centro do div seja o ponto de referência
+        mensagemPopup.style.padding = '20px';
+        mensagemPopup.style.backgroundColor = 'pink'; // Fundo escuro para destacar a mensagem
+        mensagemPopup.style.color = 'black';
+        mensagemPopup.style.fontSize = '20px';
+        mensagemPopup.style.fontWeight = 'bold';
+        mensagemPopup.style.borderRadius = '10px';
+        mensagemPopup.style.textAlign = 'center';
+        mensagemPopup.style.display = 'none'; // Inicialmente escondido
+      
+        // Adiciona a mensagem à página
+        document.body.appendChild(mensagemPopup);
+      
+        // Adiciona evento ao botão "Sim"
+        botaoSim.addEventListener('click', function() {
+        mensagemPopup.textContent = "Estamos namorando💍💍🌹🌹"; 
+        mensagemPopup.style.display = 'block';
+
+        // Esconde a mensagem após 3 segundos
+        setTimeout(() => {
+          mensagemPopup.style.display = 'none';
+        }, 3000);
+      });
+
+      
+        // Adiciona evento ao botão "Não"
+        botaoNao.addEventListener('click', function() {
+          // Move o botão "Não" para uma posição aleatória na tela
+          const novaPosicaoX = Math.random() * (window.innerWidth - botaoNao.offsetWidth);
+          const novaPosicaoY = Math.random() * (window.innerHeight - botaoNao.offsetHeight);
+          botaoNao.style.position = 'absolute'; 
+          botaoNao.style.left = `${novaPosicaoX}px`;
+          botaoNao.style.top = `${novaPosicaoY}px`;
+        });
+      </script>
+      
+      
+      
+      
+        
+</body>
+</html>
